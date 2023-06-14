@@ -25,9 +25,29 @@ class AppTest {
         Thread.sleep(5000);
 
         driver.close();
-
     }
+    @Test
+    void browserActions(){
+        //preparar el webdriver
+        WebDriverManager.chromedriver().setup();
 
+        WebDriver driver = new ChromeDriver(); //instanciar un objeto WebDriver (browser)
+
+        //cargar una pagina
+        driver.get("https://www.google.cl");
+
+        //maximizar browser
+        driver.manage().window().maximize();
+
+        //redireccionar a otra pagina
+        driver.navigate().to("https://www.selenium.dev");
+
+        //refresh
+        driver.navigate().refresh();
+
+        //volver a google
+        driver.navigate().forward();
+    }
 }
 
 
